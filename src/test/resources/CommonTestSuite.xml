@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="All Tests">
+    <test name="All Tests">
+        <classes>
+            <class name="hw1.SumTest"/>
+            <class name="hw1.SubstractTest"/>
+            <class name="hw1.MultiplyTest"/>
+            <class name="hw1.DivideTest"/>
+            <class name="hw1.SqrtTest"/>
+        </classes>
+    </test>
+</suite>
