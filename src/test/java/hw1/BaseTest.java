@@ -3,7 +3,7 @@ package hw1;
 import com.epam.tat.module4.*;
 import org.testng.annotations.*;
 
-public class BaseTest {
+public abstract class BaseTest {
     protected Calculator calculator;
 
     @BeforeMethod(alwaysRun = true)
