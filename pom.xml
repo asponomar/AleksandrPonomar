@@ -24,7 +24,7 @@
         <profile>
             <id>Common</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.file>src\test\resources\CommonTestSuite.xml</suite.file>
@@ -33,7 +33,7 @@
         <profile>
             <id>AddSubTestSuite</id>
             <activation>
-                <activeByDefault>false</activeByDefault>
+                <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
                 <suite.file>src\test\resources\AddSubTestSuite.xml</suite.file>
@@ -59,8 +59,8 @@
         </dependency>
 
         <dependency>
-            <groupId>extDependency</groupId>
-            <artifactId>extDependency</artifactId>
+            <groupId>calculator</groupId>
+            <artifactId>calculator</artifactId>
             <version>${calculator.version}</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/src/lib/calculator-1.0.jar</systemPath>
