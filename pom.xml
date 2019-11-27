@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>AleksandrPonomar</groupId>
+    <groupId>com.epam.test-automation-training</groupId>
     <artifactId>AleksandrPonomar</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -12,13 +12,43 @@
         <java.source.version>1.8</java.source.version>
         <java.target.version>1.8</java.target.version>
         <encoding.version>UTF-8</encoding.version>
-
         <!-- Libraries version -->
         <testng.version>7.0.0</testng.version>
-
+        <calculator.version>1.0</calculator.version>
         <!-- Plugins version -->
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+        <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
     </properties>
+
+    <profiles>
+        <profile>
+            <id>Common</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src\test\resources\CommonTestSuite.xml</suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>AddSubTestSuite</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src\test\resources\AddSubTestSuite.xml</suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>MultDivSqrtTest</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src\test\resources\MultDivSqrtTestSuite.xml</suite.file>
+            </properties>
+        </profile>
+    </profiles>
 
     <dependencies>
         <dependency>
@@ -26,6 +56,14 @@
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>calculator</groupId>
+            <artifactId>calculator</artifactId>
+            <version>${calculator.version}</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/lib/calculator-1.0.jar</systemPath>
         </dependency>
     </dependencies>
 
@@ -39,6 +77,19 @@
                     <source>${java.source.version}</source>
                     <target>${java.target.version}</target>
                     <encoding>${encoding.version}</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.plugin.version}</version>
+                <configuration>
+                    <reuseForks>false</reuseForks>
+                    <forkCount>0</forkCount>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${suite.file}</suiteXmlFile>
+                    </suiteXmlFiles>
                 </configuration>
             </plugin>
         </plugins>
