@@ -14,7 +14,12 @@
         <encoding.version>UTF-8</encoding.version>
         <!-- Libraries version -->
         <testng.version>7.0.0</testng.version>
+        <selenium.version>3.141.59</selenium.version>
+        <common-io.version>2.6</common-io.version>
+        <webdrivermanager.version>3.7.1</webdrivermanager.version>
+
         <calculator.version>1.0</calculator.version>
+
         <!-- Plugins version -->
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
@@ -30,6 +35,7 @@
                 <suite.file>src\test\resources\CommonTestSuite.xml</suite.file>
             </properties>
         </profile>
+
         <profile>
             <id>AddSubTestSuite</id>
             <activation>
@@ -39,6 +45,7 @@
                 <suite.file>src\test\resources\AddSubTestSuite.xml</suite.file>
             </properties>
         </profile>
+
         <profile>
             <id>MultDivSqrtTest</id>
             <activation>
@@ -56,6 +63,24 @@
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${common-io.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
         </dependency>
 
         <dependency>
