@@ -21,9 +21,9 @@ public class AbstractBaseTest {
 
         driver.manage().window().maximize();
 
- /*       driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
+        driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
         driver.manage().timeouts().pageLoadTimeout(7000, TimeUnit.MILLISECONDS);
-        driver.manage().timeouts().setScriptTimeout(9000, TimeUnit.MILLISECONDS);*/
+        driver.manage().timeouts().setScriptTimeout(9000, TimeUnit.MILLISECONDS);
     }
 
     @AfterMethod

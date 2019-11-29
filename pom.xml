@@ -32,7 +32,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src\test\resources\CommonTestSuite.xml</suite.file>
+                <suite.file>src\test\resources\hw1_test_suites\CommonTestSuite.xml</suite.file>
             </properties>
         </profile>
 
@@ -42,7 +42,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src\test\resources\AddSubTestSuite.xml</suite.file>
+                <suite.file>src\test\resources\hw1_test_suites\AddSubTestSuite.xml</suite.file>
             </properties>
         </profile>
 
@@ -52,7 +52,17 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <suite.file>src\test\resources\MultDivSqrtTestSuite.xml</suite.file>
+                <suite.file>src\test\resources\hw1_test_suites\MultDivSqrtTestSuite.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>SeleniumBaseTest</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src\test\resources\hw2_test_suites\SeleniumBaseTestSuite.xml</suite.file>
             </properties>
         </profile>
     </profiles>
