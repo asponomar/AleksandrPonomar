@@ -22,9 +22,6 @@ public class HomePage extends AbstractBasePage {
     @FindBy(id = "user-name")
     private WebElement userName;
 
-    @FindBy(css = ".m-l8>li")
-    private List<WebElement> headerSectionMenuButtons;
-
     @FindBy(css = ".icons-benefit")
     private List<WebElement> homePageImages;
 
@@ -48,12 +45,6 @@ public class HomePage extends AbstractBasePage {
 
     @FindBy(linkText = "JDI GITHUB")
     private WebElement epamJdiGitHubLink;
-
-    @FindBy(id = "mCSB_1")
-    private WebElement leftSection;
-
-    @FindBy(css = ".footer-bg")
-    private WebElement footer;
 
 
     public HomePage(WebDriver driver) {
@@ -89,10 +80,6 @@ public class HomePage extends AbstractBasePage {
         return userName.getText();
     }
 
-    public List<WebElement> getHeaderSectionMenuButtons() {
-        return headerSectionMenuButtons;
-    }
-
     public List<WebElement> getHomePageImages() {
         return homePageImages;
     }
@@ -123,14 +110,6 @@ public class HomePage extends AbstractBasePage {
 
     public WebElement getEpamJdiGitHubLink() {
         return epamJdiGitHubLink;
-    }
-
-    public WebElement getLeftSection() {
-        return leftSection;
-    }
-
-    public WebElement getFooter() {
-        return footer;
     }
 
     public void switchToIFrame() {

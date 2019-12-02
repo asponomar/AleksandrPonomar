@@ -5,8 +5,6 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.*;
 import org.testng.annotations.*;
 
-import java.io.*;
-import java.util.*;
 import java.util.concurrent.*;
 
 public abstract class AbstractBaseTest {
@@ -23,11 +21,10 @@ public abstract class AbstractBaseTest {
 
         driver.manage().window().maximize();
 
-//        driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
-//        driver.manage().timeouts().pageLoadTimeout(7000, TimeUnit.MILLISECONDS);
-//        driver.manage().timeouts().setScriptTimeout(9000, TimeUnit.MILLISECONDS);
+        driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
+        driver.manage().timeouts().pageLoadTimeout(7000, TimeUnit.MILLISECONDS);
+        driver.manage().timeouts().setScriptTimeout(9000, TimeUnit.MILLISECONDS);
     }
-
 
     @AfterMethod
     public void tearDown() {
