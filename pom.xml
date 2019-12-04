@@ -17,6 +17,7 @@
         <selenium.version>3.141.59</selenium.version>
         <common-io.version>2.6</common-io.version>
         <webdrivermanager.version>3.7.1</webdrivermanager.version>
+        <selenide.version>5.5.1</selenide.version>
 
         <calculator.version>1.0</calculator.version>
 
@@ -104,11 +105,24 @@
         </dependency>
 
         <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>${selenide.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
             <groupId>calculator</groupId>
             <artifactId>calculator</artifactId>
             <version>${calculator.version}</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/src/main/resources/calculator-1.0.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>5.5.1</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 

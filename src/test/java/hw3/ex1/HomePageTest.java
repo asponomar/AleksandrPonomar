@@ -16,7 +16,6 @@ public class HomePageTest extends AbstractBaseTest implements TestData {
         assertSteps = new AssertionHomePageSteps(driver);
     }
 
-    //        2 Assert Browser title
     @Test
     public void browserTitleTest() {
         actionSteps.open(HOME_PAGE_URL);

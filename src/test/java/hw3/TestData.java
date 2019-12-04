@@ -28,4 +28,8 @@ public interface TestData {
     String SUB_HEADER_TEXT = "JDI GITHUB";
     String JDI_GITHUB_LINK = "https://github.com/epam/JDI";
 
+    //    Fields added in Homework 4
+    List<String> SERVICE_DROPDOWN_MENU = Arrays.asList("SUPPORT", "DATES", "SEARCH",
+            "COMPLEX TABLE", "SIMPLE TABLE", "USER TABLE", "TABLE WITH PAGES", "DIFFERENT ELEMENTS", "PERFORMANCE");
+
 }
