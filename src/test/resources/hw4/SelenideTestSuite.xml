@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="All Tests">
+    <test name="All Tests">
+        <classes>
+            <class name="hw4.ex1.SelenideHomePageTest"/>
+            <class name="hw4.ex1.SelenideTablePageTest"/>
+        </classes>
+    </test>
+</suite>

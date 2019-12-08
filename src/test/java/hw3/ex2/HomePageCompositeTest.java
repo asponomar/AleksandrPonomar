@@ -20,7 +20,7 @@ public class HomePageCompositeTest extends AbstractBaseTest implements TestData 
     @Test
     public void BrowserTitleTest() {
         actionSteps.open(HOME_PAGE_URL);
-        assertSteps.browserTitleShouldBe(BROWSER_TITLE);
+        assertSteps.browserTitleShouldBe(HOME_PAGE_TITLE);
     }
 
     @Test
@@ -34,7 +34,7 @@ public class HomePageCompositeTest extends AbstractBaseTest implements TestData 
     public void BrowserTitleAfterLoginTest() {
         actionSteps.open(HOME_PAGE_URL);
         actionSteps.login(USER_LOGIN, USER_PASSWORD);
-        assertSteps.browserTitleShouldBe(BROWSER_TITLE);
+        assertSteps.browserTitleShouldBe(HOME_PAGE_TITLE);
     }
 
     @Test

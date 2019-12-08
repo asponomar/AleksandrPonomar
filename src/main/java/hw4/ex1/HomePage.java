@@ -1,41 +1,22 @@
 package hw4.ex1;
 
-import com.codeborne.selenide.*;
-import org.openqa.selenium.support.*;
+import hw4.components.*;
+import hw4.builders.*;
 
-import static com.codeborne.selenide.Selenide.element;
-import static com.codeborne.selenide.Selenide.page;
+import static com.codeborne.selenide.Selenide.*;
 
-public class HomePage extends AbstractBasePage {
-
-    @FindBy(id = "user-icon")
-    private SelenideElement userIcon;
-
-    @FindBy(id = "name")
-    private SelenideElement userLoginTextField;
-
-    @FindBy(id = "password")
-    private SelenideElement userPasswordTextField;
-
-    @FindBy(id = "login-button")
-    private SelenideElement loginButton;
-
-    @FindBy(id = "user-name")
-    private SelenideElement userName;
-
+public class HomePage {
+    private HeaderMenu headerMenu = new HeaderMenu();
 
     public HomePage() {
         page(this);
     }
 
-    public void login(final String username, final String password) {
-        userIcon.click();
-        userLoginTextField.sendKeys(username);
-        userPasswordTextField.sendKeys(password);
-        loginButton.click();
+    public void login(User user) {
+        headerMenu.userIconClick();
+        headerMenu.setUserLoginTextField(user.getUserLogin());
+        headerMenu.setUserPasswordTextField(user.getUserPassword());
+        headerMenu.loginButtonClick();
     }
 
-    public SelenideElement getUserName() {
-        return userName;
-    }
 }
