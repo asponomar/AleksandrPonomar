@@ -19,4 +19,9 @@ public class HomePage {
         headerMenu.loginButtonClick();
     }
 
+    public void logout() {
+        headerMenu.getUserName().click();
+        headerMenu.getLogOutButton().click();
+    }
+
 }

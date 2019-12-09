@@ -3,13 +3,13 @@ package hw4.builders;
 import java.util.*;
 
 public class TestData {
-    private List<Integer> summary;
+    private List<String> summary;
     private List<String> elements;
     private String colors;
     private String metals;
     private List<String> vegetables;
 
-    private TestData(List<Integer> summary, List<String> elements, String colors, String metals, List<String> vegetables) {
+    private TestData(List<String> summary, List<String> elements, String colors, String metals, List<String> vegetables) {
         this.summary = summary;
         this.elements = elements;
         this.colors = colors;
@@ -17,7 +17,7 @@ public class TestData {
         this.vegetables = vegetables;
     }
 
-    public List<Integer> getSummary() {
+    public List<String> getSummary() {
         return summary;
     }
 
@@ -41,8 +41,31 @@ public class TestData {
         return new TestDataBuilder();
     }
 
+    public List<String> testDataLog() {
+        List<String> result = new ArrayList<>();
+        if (summary != null) {
+            int summaryResult = summary.stream().mapToInt(Integer::getInteger).sum();
+            result.add("Summary: " + summaryResult);
+        }
+        if (elements != null) {
+            StringBuilder elementsResult = new StringBuilder();
+            for (String el : elements) elementsResult.append(el).append(" ");
+            elementsResult.toString().trim().replace(" ", ", ");
+            result.add("Elements: " + elementsResult);
+        }
+        if (colors != null) result.add("Color: " + colors);
+        if (metals != null) result.add("Metal: " + metals);
+        if (vegetables != null) {
+            StringBuilder vegetablesResult = new StringBuilder();
+            for (String veg : vegetables) vegetablesResult.append(veg).append(" ");
+            vegetablesResult.toString().trim().replace(" ", ", ");
+            result.add("Vegetables: " + vegetablesResult);
+        }
+        return result;
+    }
+
     public static class TestDataBuilder {
-        private List<Integer> summary;
+        private List<String> summary;
         private List<String> elements;
         private String colors;
         private String metals;
@@ -51,7 +74,7 @@ public class TestData {
         private TestDataBuilder() {
         }
 
-        public TestDataBuilder setSummary(List<Integer> summary) {
+        public TestDataBuilder setSummary(List<String> summary) {
             this.summary = summary;
             return this;
         }

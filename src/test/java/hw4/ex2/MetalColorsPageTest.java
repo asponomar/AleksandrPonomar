@@ -1,37 +1,43 @@
 package hw4.ex2;
 
 import hw4.*;
-import hw4.components.*;
+import hw4.builders.*;
+import hw4.ex2.steps.*;
 import org.testng.annotations.*;
 
-import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.WebDriverRunner.*;
-import static org.testng.Assert.*;
-
 public class MetalColorsPageTest extends AbstractBaseTest {
-    private RightSection rightSection;
-    private MetalsColorsPage metalsColorsPage;
+
+    private ActionSteps actionSteps;
+    private AssertSteps assertSteps;
 
     @BeforeMethod
     @Override
     public void beforeMethod() {
         super.beforeMethod();
-        this.rightSection = new RightSection();
-        this.metalsColorsPage = new MetalsColorsPage();
+        actionSteps = new ActionSteps();
+        assertSteps = new AssertSteps();
     }
 
     @Test(dataProviderClass = MetalColorsTestDataProvider.class, dataProvider = "MetalColorsTestDataProvider")
-    public void metalColorsPageTest() {
+    public void metalColorsPageTest(TestData testData) {
 
-        element("title").shouldHave(attribute("text", HOME_PAGE_TITLE));
+        assertSteps.checkHomePageTitle();
 
-        homePage.login(user);
-        headerMenu.getUserName().shouldBe(text(user.getUserName()));
+        actionSteps.login(user);
+        assertSteps.checkUserName(user);
 
-        headerMenu.getMetalsColorsLinkInDropdownMenu().click();
-        assertEquals(url(), METAL_COLORS_URL);
+        actionSteps.goToMetalColorsPage();
+        assertSteps.checkMetalColorsUrl();
 
+        actionSteps.chooseSummaryItems(testData);
+        actionSteps.chooseElements(testData);
+        actionSteps.chooseColors(testData);
+        actionSteps.chooseMetals(testData);
+        actionSteps.unselectVegetables();
+        actionSteps.chooseVegetables(testData);
+        actionSteps.clickSubmitButton();
+        assertSteps.checkResult(testData);
 
+        actionSteps.logout();
     }
 }

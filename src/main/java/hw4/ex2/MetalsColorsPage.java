@@ -11,26 +11,25 @@ import static com.codeborne.selenide.Selenide.page;
 
 public class MetalsColorsPage {
 
-    //    @FindBy(css = ".info-panel-section .horizontal-group label")
     @FindBy(css = "#summary-block .radio")
     private List<SelenideElement> summaryRadioButtons;
 
     @FindBy(css = "#elements-checklist label")
     private List<SelenideElement> elementCheckBoxes;
 
-    @FindBy(id = "#colors")
+    @FindBy(id = "colors")
     private SelenideElement ColorsDropDownMenu;
 
     @FindBy(css = "#colors li")
     private List<SelenideElement> ColorsDropDownMenuItems;
 
-    @FindBy(id = "#metals")
+    @FindBy(id = "metals")
     private SelenideElement MetalsDropDownMenu;
 
     @FindBy(css = "#metals li")
     private List<SelenideElement> MetalsDropDownMenuItems;
 
-    @FindBy(id = "#vegetables")
+    @FindBy(id = "vegetables")
     private SelenideElement VegetablesDropDownMenu;
 
     @FindBy(css = "#vegetables li")
@@ -39,7 +38,7 @@ public class MetalsColorsPage {
     @FindBy(xpath = "//*[@class='checkbox']//label[contains(text(),'Vegetables')]")
     private SelenideElement VegetablesDropDownMenuVegetableItem;
 
-    @FindBy(id = "#submit-button")
+    @FindBy(id = "submit-button")
     private SelenideElement submitButton;
 
     public MetalsColorsPage() {

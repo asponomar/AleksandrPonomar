@@ -17,19 +17,19 @@ public class MetalColorsTestDataProvider {
                         .build()},
 
                 {TestData.testDataBuilder()
-                        .setSummary(Arrays.asList(3, 8))
+                        .setSummary(Arrays.asList("3", "8"))
                         .setVegetables(Arrays.asList("Cucumber", "Tomato"))
                         .build()},
 
                 {TestData.testDataBuilder()
-                        .setSummary(Arrays.asList(3, 2))
+                        .setSummary(Arrays.asList("3", "2"))
                         .setElements(Arrays.asList("Wind", "Fire", "Water"))
                         .setMetals("Bronze")
                         .setVegetables(Arrays.asList("Onion"))
                         .build()},
 
                 {TestData.testDataBuilder()
-                        .setSummary(Arrays.asList(6, 5))
+                        .setSummary(Arrays.asList("6", "5"))
                         .setElements(Arrays.asList("Water"))
                         .setColors("Green")
                         .setMetals("Selen")
