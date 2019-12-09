@@ -33,11 +33,12 @@ public class MetalColorsPageTest extends AbstractBaseTest {
         actionSteps.chooseElements(testData);
         actionSteps.chooseColors(testData);
         actionSteps.chooseMetals(testData);
-        actionSteps.unselectVegetables();
+        actionSteps.unselectVegetables(testData);
         actionSteps.chooseVegetables(testData);
         actionSteps.clickSubmitButton();
         assertSteps.checkResult(testData);
 
+        actionSteps.refreshPage();
         actionSteps.logout();
     }
 }

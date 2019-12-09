@@ -1,10 +1,11 @@
 package hw4.ex2.steps;
 
-import com.codeborne.selenide.*;
-import hw4.builders.*;
-import hw4.components.*;
+import hw4.builders.TestData;
+import hw4.builders.User;
+import hw4.ex2.MetalsColorsPage;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.text;
@@ -13,7 +14,7 @@ import static com.codeborne.selenide.WebDriverRunner.url;
 import static org.testng.Assert.assertEquals;
 
 public class AssertSteps extends AbstractBaseSteps {
-    protected RightSection rightSection = new RightSection();
+    private MetalsColorsPage metalsColorsPage = new MetalsColorsPage();
 
     public void checkHomePageTitle() {
         element("title").shouldHave(attribute("text", HOME_PAGE_TITLE));
@@ -27,11 +28,22 @@ public class AssertSteps extends AbstractBaseSteps {
         assertEquals(url(), METAL_COLORS_URL);
     }
 
+    public List<String> resultLog() {
+        List<String> result = new ArrayList<>();
+        if (!metalsColorsPage.getSummRes().getText().equals("Summary: 3"))
+            result.add(metalsColorsPage.getSummRes().getText());
+        if (metalsColorsPage.getElemRes().exists())
+            result.add(metalsColorsPage.getElemRes().getText());
+        if (!metalsColorsPage.getColRes().getText().equals("Color: Colors"))
+            result.add(metalsColorsPage.getColRes().getText());
+        if (!metalsColorsPage.getMetRes().getText().equals("Metal: Metals"))
+            result.add(metalsColorsPage.getMetRes().getText());
+        if (!metalsColorsPage.getSalRes().getText().equals("Vegetables: Vegetables"))
+            result.add(metalsColorsPage.getSalRes().getText());
+        return result;
+    }
+
     public void checkResult(TestData testData) {
-        List<String> resultList = new ArrayList<>();
-        for (SelenideElement result : rightSection.getResultsList()) {
-            resultList.add(result.getText());
-        }
-        assertEquals(resultList, testData.testDataLog());
+        assertEquals(resultLog(), testData.testDataLog());
     }
 }

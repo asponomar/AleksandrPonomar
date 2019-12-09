@@ -20,19 +20,19 @@ public class MetalsColorsPage {
     @FindBy(id = "colors")
     private SelenideElement ColorsDropDownMenu;
 
-    @FindBy(css = "#colors li")
+    @FindBy(css = ".colors .text")
     private List<SelenideElement> ColorsDropDownMenuItems;
 
-    @FindBy(id = "metals")
+    @FindBy(xpath = "//div[@id='metals']//span[@class='caret']")
     private SelenideElement MetalsDropDownMenu;
 
-    @FindBy(css = "#metals li")
+    @FindBy(css = ".metals .text")
     private List<SelenideElement> MetalsDropDownMenuItems;
 
     @FindBy(id = "vegetables")
     private SelenideElement VegetablesDropDownMenu;
 
-    @FindBy(css = "#vegetables li")
+    @FindBy(css = "#vegetables .checkbox")
     private List<SelenideElement> VegetablesDropDownMenuItems;
 
     @FindBy(xpath = "//*[@class='checkbox']//label[contains(text(),'Vegetables')]")
@@ -40,6 +40,21 @@ public class MetalsColorsPage {
 
     @FindBy(id = "submit-button")
     private SelenideElement submitButton;
+
+    @FindBy(css = ".summ-res")
+    private SelenideElement summRes;
+
+    @FindBy(css = ".elem-res")
+    private SelenideElement elemRes;
+
+    @FindBy(css = ".col-res")
+    private SelenideElement colRes;
+
+    @FindBy(css = ".met-res")
+    private SelenideElement metRes;
+
+    @FindBy(css = ".sal-res")
+    private SelenideElement salRes;
 
     public MetalsColorsPage() {
         page(this);
@@ -84,5 +99,25 @@ public class MetalsColorsPage {
 
     public SelenideElement getSubmitButton() {
         return submitButton;
+    }
+
+    public SelenideElement getSummRes() {
+        return summRes;
+    }
+
+    public SelenideElement getElemRes() {
+        return elemRes;
+    }
+
+    public SelenideElement getColRes() {
+        return colRes;
+    }
+
+    public SelenideElement getMetRes() {
+        return metRes;
+    }
+
+    public SelenideElement getSalRes() {
+        return salRes;
     }
 }

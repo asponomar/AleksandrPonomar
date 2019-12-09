@@ -1,15 +1,16 @@
 package hw4.builders;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class TestData {
-    private List<String> summary;
+    private List<Integer> summary;
     private List<String> elements;
     private String colors;
     private String metals;
     private List<String> vegetables;
 
-    private TestData(List<String> summary, List<String> elements, String colors, String metals, List<String> vegetables) {
+    private TestData(List<Integer> summary, List<String> elements, String colors, String metals, List<String> vegetables) {
         this.summary = summary;
         this.elements = elements;
         this.colors = colors;
@@ -17,7 +18,7 @@ public class TestData {
         this.vegetables = vegetables;
     }
 
-    public List<String> getSummary() {
+    public List<Integer> getSummary() {
         return summary;
     }
 
@@ -44,28 +45,35 @@ public class TestData {
     public List<String> testDataLog() {
         List<String> result = new ArrayList<>();
         if (summary != null) {
-            int summaryResult = summary.stream().mapToInt(Integer::getInteger).sum();
+            int summaryResult = 0;
+            for (Integer s : summary) summaryResult += s;
             result.add("Summary: " + summaryResult);
         }
         if (elements != null) {
-            StringBuilder elementsResult = new StringBuilder();
-            for (String el : elements) elementsResult.append(el).append(" ");
-            elementsResult.toString().trim().replace(" ", ", ");
-            result.add("Elements: " + elementsResult);
+            String elementsResults = elements
+                    .stream()
+                    .map(el -> el + " ")
+                    .collect(Collectors.joining())
+                    .trim()
+                    .replace(" ", ", ");
+            result.add("Elements: " + elementsResults);
         }
         if (colors != null) result.add("Color: " + colors);
         if (metals != null) result.add("Metal: " + metals);
         if (vegetables != null) {
-            StringBuilder vegetablesResult = new StringBuilder();
-            for (String veg : vegetables) vegetablesResult.append(veg).append(" ");
-            vegetablesResult.toString().trim().replace(" ", ", ");
+            String vegetablesResult = vegetables
+                    .stream()
+                    .map(veg -> veg + " ")
+                    .collect(Collectors.joining())
+                    .trim()
+                    .replace(" ", ", ");
             result.add("Vegetables: " + vegetablesResult);
         }
         return result;
     }
 
     public static class TestDataBuilder {
-        private List<String> summary;
+        private List<Integer> summary;
         private List<String> elements;
         private String colors;
         private String metals;
@@ -74,7 +82,7 @@ public class TestData {
         private TestDataBuilder() {
         }
 
-        public TestDataBuilder setSummary(List<String> summary) {
+        public TestDataBuilder setSummary(List<Integer> summary) {
             this.summary = summary;
             return this;
         }
