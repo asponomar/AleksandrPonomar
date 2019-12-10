@@ -2,12 +2,12 @@
 <suite name="All Tests">
     <test name="All Tests">
         <classes>
-            <class name="hw2.ex2.EpamJdiHomePageSoftAssertTest"/>
-            <!--
+<!--            <class name="hw2.ex2.EpamJdiHomePageSoftAssertTest"/>-->
+
             <class name="hw3.ex1.HomePageTest"/>
             <class name="hw3.ex2.HomePageCompositeTest"/>
             <class name="hw5.HomePageTestFailed"/>
-                        -->
+
         </classes>
     </test>
 </suite>

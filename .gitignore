@@ -14,4 +14,6 @@ buildNumber.properties
 
 /.idea/
 *.iml
-!/build/
+/build/
+/allure-results/
+/.allure/
