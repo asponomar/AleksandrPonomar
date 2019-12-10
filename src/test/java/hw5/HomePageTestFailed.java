@@ -1,10 +1,10 @@
-package hw3.ex1;
+package hw5;
 
 import hw3.*;
 import hw3.ex1.steps.*;
 import org.testng.annotations.*;
 
-public class HomePageTest extends AbstractBaseTest implements TestData {
+public class HomePageTestFailed extends AbstractBaseTest implements TestData {
     private ActionHomePageSteps actionSteps;
     private AssertionHomePageSteps assertSteps;
 
@@ -19,7 +19,7 @@ public class HomePageTest extends AbstractBaseTest implements TestData {
     //        2 Assert Browser title
     @Test
     public void browserTitleTest() {
-        actionSteps.open(HOME_PAGE_URL);
+        actionSteps.open("HOME_PAGE_URL");
         assertSteps.browserTitleShouldBe(BROWSER_TITLE);
     }
 
@@ -33,7 +33,7 @@ public class HomePageTest extends AbstractBaseTest implements TestData {
     @Test
     public void browserTitleAfterLoginTest() {
         actionSteps.open(HOME_PAGE_URL);
-        actionSteps.login(USER_LOGIN, USER_PASSWORD);
+        actionSteps.login(USER_LOGIN, "Wr0ng P@$$w0rd");
         assertSteps.browserTitleShouldBe(BROWSER_TITLE);
     }
 
@@ -64,7 +64,7 @@ public class HomePageTest extends AbstractBaseTest implements TestData {
     @Test
     public void centralMainHeaderTest() {
         actionSteps.open(HOME_PAGE_URL);
-        assertSteps.centralMainHeaderShouldBe(CENTRAL_MAIN_HEADER);
+        assertSteps.centralMainHeaderShouldBe("CENTRAL_MAIN_HEADER");
     }
 
     @Test
@@ -104,7 +104,7 @@ public class HomePageTest extends AbstractBaseTest implements TestData {
     @Test
     public void subHeaderTextShouldBe() {
         actionSteps.open(HOME_PAGE_URL);
-        assertSteps.subHeaderTextShouldBe(SUB_HEADER_TEXT);
+        assertSteps.subHeaderTextShouldBe("SUB_HEADER_TEXT");
     }
 
     @Test
@@ -121,7 +121,7 @@ public class HomePageTest extends AbstractBaseTest implements TestData {
 
     @Test
     public void footerIsDisplayedTest() {
-        actionSteps.open(HOME_PAGE_URL);
+        actionSteps.open("HOME_PAGE_URL");
         assertSteps.footerIsDisplayed();
     }
 

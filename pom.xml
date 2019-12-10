@@ -39,7 +39,7 @@
         <profile>
             <id>AddSubTestSuite</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.file>src\test\resources\hw1_test_suites\AddSubTestSuite.xml</suite.file>
@@ -73,6 +73,16 @@
             </activation>
             <properties>
                 <suite.file>src\test\resources\hw3_test_suites\PageObjectsTestSuite.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>JenkinsTests</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src\test\resources\hw5_test_suites\JenkinsTests.xml</suite.file>
             </properties>
         </profile>
     </profiles>
