@@ -7,7 +7,7 @@ import org.testng.*;
 public class AttachmentListener extends TestListenerAdapter {
 
     @Attachment(value = "{0}", fileExtension = "png", type = "image/png")
-    public byte[] makeScreenshot(String name) {
+    public static byte[] makeScreenshot(String name) {
         byte[] array = null;
         try {
             System.out.println("Make " + name + " screenshot");

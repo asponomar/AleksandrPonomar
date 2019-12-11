@@ -20,6 +20,8 @@ public class HomePageTest extends AbstractBaseTest implements TestData {
         assertSteps = new AssertionHomePageSteps(driver);
     }
 
+    @Feature("Home page tests")
+    @Story("Two passed tests")
     @Test(testName = "Home Page passed steps test")
     @Severity(SeverityLevel.CRITICAL)
     public void homepageTest() {

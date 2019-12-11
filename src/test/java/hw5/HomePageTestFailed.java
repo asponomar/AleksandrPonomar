@@ -19,6 +19,8 @@ public class HomePageTestFailed extends AbstractBaseTest implements TestData {
         assertSteps = new AssertionHomePageSteps(driver);
     }
 
+    @Feature("Home page tests")
+    @Story("And one failed test")
     @Test(testName = "Home Page failed test")
     @Severity(SeverityLevel.BLOCKER)
     public void browserTitleTest() {

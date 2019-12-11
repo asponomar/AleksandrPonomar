@@ -3,6 +3,7 @@ package hw3.ex2;
 import hw3.*;
 import hw3.ex2.steps.*;
 import hw5.*;
+import io.qameta.allure.*;
 import io.qameta.allure.testng.*;
 import org.testng.annotations.*;
 
@@ -19,7 +20,9 @@ public class HomePageCompositeTest extends AbstractBaseTest implements TestData 
         assertSteps = new AssertionHomePageSteps(driver);
     }
 
-    @Test
+    @Feature("Home page tests")
+    @Story("Two passed tests")
+    @Test(testName = "Home Page passed steps composite test")
     public void BrowserTitleTest() {
         actionSteps.open(HOME_PAGE_URL);
         assertSteps.browserTitleShouldBe(BROWSER_TITLE);
