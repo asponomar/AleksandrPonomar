@@ -19,12 +19,14 @@
         <webdrivermanager.version>3.7.1</webdrivermanager.version>
         <allure.version>2.13.0</allure.version>
         <aspectj.version>1.8.10</aspectj.version>
+        <jackson.version>2.9.9</jackson.version>
 
         <calculator.version>1.0</calculator.version>
 
         <!-- Plugins version -->
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
+        <allure.maven.plugin.version>2.10.0</allure.maven.plugin.version>
     </properties>
 
     <profiles>
@@ -128,9 +130,15 @@
         </dependency>
 
         <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-attachments</artifactId>
+            <version>${allure.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
-            <version>2.9.9</version>
+            <version>${jackson.version}</version>
         </dependency>
 
         <dependency>
@@ -160,14 +168,12 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven.surefire.plugin.version}</version>
                 <configuration>
-                    <reuseForks>false</reuseForks>
-                    <forkCount>0</forkCount>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>${suite.file}</suiteXmlFile>
-                    </suiteXmlFiles>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${suite.file}</suiteXmlFile>
+                    </suiteXmlFiles>
                 </configuration>
                 <dependencies>
                     <dependency>
@@ -181,9 +187,11 @@
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
-                <version>2.10.0</version>
+                <version>${allure.maven.plugin.version}</version>
                 <configuration>
+                    <reportVersion>${allure.version}</reportVersion>
                     <resultsDirectory>${project.basedir}/allure-results</resultsDirectory>
+                    <reportDirectory>${project.basedir}/allure-reports</reportDirectory>
                 </configuration>
             </plugin>
         </plugins>

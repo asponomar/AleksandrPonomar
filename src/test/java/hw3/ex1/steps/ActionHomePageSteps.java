@@ -29,4 +29,9 @@ public class ActionHomePageSteps {
         homePage.switchToIFrame();
     }
 
+    @Step("I switch to parent frame")
+    public void switchToParentFrame() {
+        homePage.switchToParentFrame();
+    }
+
 }

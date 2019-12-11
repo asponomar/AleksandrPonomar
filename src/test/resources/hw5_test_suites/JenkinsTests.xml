@@ -1,13 +1,14 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="All Tests">
+    <listeners>
+        <listener class-name="hw5.AttachmentListener"></listener>
+    </listeners>
+
     <test name="All Tests">
         <classes>
-<!--            <class name="hw2.ex2.EpamJdiHomePageSoftAssertTest"/>-->
-
             <class name="hw3.ex1.HomePageTest"/>
             <class name="hw3.ex2.HomePageCompositeTest"/>
             <class name="hw5.HomePageTestFailed"/>
-
         </classes>
     </test>
 </suite>
