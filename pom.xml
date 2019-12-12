@@ -17,12 +17,16 @@
         <selenium.version>3.141.59</selenium.version>
         <common-io.version>2.6</common-io.version>
         <webdrivermanager.version>3.7.1</webdrivermanager.version>
+        <allure.version>2.13.0</allure.version>
+        <aspectj.version>1.8.10</aspectj.version>
+        <jackson.version>2.9.9</jackson.version>
 
         <calculator.version>1.0</calculator.version>
 
         <!-- Plugins version -->
         <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
         <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
+        <allure.maven.plugin.version>2.10.0</allure.maven.plugin.version>
     </properties>
 
     <profiles>
@@ -39,7 +43,7 @@
         <profile>
             <id>AddSubTestSuite</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <suite.file>src\test\resources\hw1_test_suites\AddSubTestSuite.xml</suite.file>
@@ -75,6 +79,16 @@
                 <suite.file>src\test\resources\hw3_test_suites\PageObjectsTestSuite.xml</suite.file>
             </properties>
         </profile>
+
+        <profile>
+            <id>JenkinsTests</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src\test\resources\hw5_test_suites\JenkinsTests.xml</suite.file>
+            </properties>
+        </profile>
     </profiles>
 
     <dependencies>
@@ -104,6 +118,30 @@
         </dependency>
 
         <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-java-commons</artifactId>
+            <version>${allure.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-attachments</artifactId>
+            <version>${allure.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>calculator</groupId>
             <artifactId>calculator</artifactId>
             <version>${calculator.version}</version>
@@ -130,11 +168,30 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven.surefire.plugin.version}</version>
                 <configuration>
-                    <reuseForks>false</reuseForks>
-                    <forkCount>0</forkCount>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
                     <suiteXmlFiles>
                         <suiteXmlFile>${suite.file}</suiteXmlFile>
                     </suiteXmlFiles>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure.maven.plugin.version}</version>
+                <configuration>
+                    <reportVersion>${allure.version}</reportVersion>
+                    <resultsDirectory>${project.basedir}/allure-results</resultsDirectory>
+                    <reportDirectory>${project.basedir}/allure-reports</reportDirectory>
                 </configuration>
             </plugin>
         </plugins>

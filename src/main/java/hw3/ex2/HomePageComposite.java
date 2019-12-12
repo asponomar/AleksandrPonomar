@@ -80,4 +80,8 @@ public class HomePageComposite extends AbstractBasePage {
     public void switchToIFrame() {
         driver.switchTo().frame(iFrame);
     }
+
+    public void switchToParentFrame() {
+        driver.switchTo().parentFrame();
+    }
 }
