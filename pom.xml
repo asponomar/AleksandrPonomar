@@ -17,6 +17,7 @@
         <selenium.version>3.141.59</selenium.version>
         <common-io.version>2.6</common-io.version>
         <webdrivermanager.version>3.7.1</webdrivermanager.version>
+        <selenide.version>5.5.1</selenide.version>
         <allure.version>2.13.0</allure.version>
         <aspectj.version>1.8.10</aspectj.version>
         <jackson.version>2.9.9</jackson.version>
@@ -81,6 +82,25 @@
         </profile>
 
         <profile>
+            <id>SelenideTest</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src\test\resources\hw4\SelenideTestSuite.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>DesignPatternsTest</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <suite.file>src\test\resources\hw4\DesignPatternsTestSuite.xml</suite.file>
+        </profile>
+          
+        <profile>              
             <id>JenkinsTests</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
@@ -104,6 +124,7 @@
             <artifactId>selenium-java</artifactId>
             <version>${selenium.version}</version>
         </dependency>
+      
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
@@ -115,6 +136,13 @@
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>${webdrivermanager.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>${selenide.version}</version>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
