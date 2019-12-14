@@ -1,5 +1,6 @@
 package hw3;
 
+import hw5.*;
 import io.github.bonigarcia.wdm.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.*;
@@ -24,6 +25,7 @@ public abstract class AbstractBaseTest {
         driver.manage().timeouts().implicitlyWait(5000, TimeUnit.MILLISECONDS);
         driver.manage().timeouts().pageLoadTimeout(7000, TimeUnit.MILLISECONDS);
         driver.manage().timeouts().setScriptTimeout(9000, TimeUnit.MILLISECONDS);
+        WebDriverSingleton.INSTANCE.setDriver(driver);
     }
 
     @AfterMethod

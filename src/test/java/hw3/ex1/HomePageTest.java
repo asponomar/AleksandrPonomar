@@ -2,8 +2,12 @@ package hw3.ex1;
 
 import hw3.*;
 import hw3.ex1.steps.*;
+import hw5.*;
+import io.qameta.allure.*;
+import io.qameta.allure.testng.*;
 import org.testng.annotations.*;
 
+@Listeners({AllureTestNg.class, AttachmentListener.class})
 public class HomePageTest extends AbstractBaseTest implements TestData {
     private ActionHomePageSteps actionSteps;
     private AssertionHomePageSteps assertSteps;
@@ -16,111 +20,39 @@ public class HomePageTest extends AbstractBaseTest implements TestData {
         assertSteps = new AssertionHomePageSteps(driver);
     }
 
-    @Test
-    public void browserTitleTest() {
+    @Feature("Home page tests")
+    @Story("Two passed tests")
+    @Test(testName = "Home Page passed steps test")
+    @Severity(SeverityLevel.CRITICAL)
+    public void homepageTest() {
         actionSteps.open(HOME_PAGE_URL);
-        assertSteps.browserTitleShouldBe(HOME_PAGE_TITLE);
-    }
+        assertSteps.browserTitleShouldBe(BROWSER_TITLE);
 
-    @Test
-    public void loginTest() {
-        actionSteps.open(HOME_PAGE_URL);
         actionSteps.login(USER_LOGIN, USER_PASSWORD);
         assertSteps.userNameShouldBe(USER_NAME);
-    }
 
-    @Test
-    public void browserTitleAfterLoginTest() {
-        actionSteps.open(HOME_PAGE_URL);
-        actionSteps.login(USER_LOGIN, USER_PASSWORD);
-        assertSteps.browserTitleShouldBe(HOME_PAGE_TITLE);
-    }
+        assertSteps.browserTitleShouldBe(BROWSER_TITLE);
 
-    @Test
-    public void headerSectionMenuButtonsTest() {
-        actionSteps.open(HOME_PAGE_URL);
         assertSteps.headerSectionMenuButtonsShouldBe(HEADER_SECTION_MENU_BUTTONS);
-    }
 
-    @Test
-    public void homePageTestImages() {
-        actionSteps.open(HOME_PAGE_URL);
         assertSteps.imagesOnHomePageShouldBeDisplayed();
-    }
-
-    @Test
-    public void homePageUnderIconsTextTest() {
-        actionSteps.open(HOME_PAGE_URL);
         assertSteps.homePageUnderIconsTextShouldBe(UNDER_ICONS_TEXT);
-    }
 
-    @Test
-    public void centralMainHeaderIsDisplayed() {
-        actionSteps.open(HOME_PAGE_URL);
         assertSteps.centralMainHeaderIsDisplayed();
-    }
-
-    @Test
-    public void centralMainHeaderTest() {
-        actionSteps.open(HOME_PAGE_URL);
         assertSteps.centralMainHeaderShouldBe(CENTRAL_MAIN_HEADER);
-    }
-
-    @Test
-    public void centralMainHeaderTextIsDisplayed() {
-        actionSteps.open(HOME_PAGE_URL);
         assertSteps.centralMainHeaderTextIsDisplayed();
-    }
-
-    @Test
-    public void centralMainHeaderTextTest() {
-        actionSteps.open(HOME_PAGE_URL);
         assertSteps.centralMainHeaderTextShouldBe(CENTRAL_MAIN_HEADER_TEXT);
-    }
 
-    @Test
-    public void iframeIsDisplayedTest() {
-        actionSteps.open(HOME_PAGE_URL);
-        actionSteps.login(USER_LOGIN, USER_PASSWORD);
         actionSteps.swithToIFrame();
         assertSteps.iFrameIsDisplayed();
-    }
-
-    @Test
-    public void epamLogoInIFrameIsDisplayedTest() {
-        actionSteps.open(HOME_PAGE_URL);
-        actionSteps.login(USER_LOGIN, USER_PASSWORD);
-        actionSteps.swithToIFrame();
         assertSteps.epamLogoInIFrameIsDisplayed();
-    }
+        actionSteps.switchToParentFrame();
 
-    @Test
-    public void subHeaderTextIsDisplayedTest() {
-        actionSteps.open(HOME_PAGE_URL);
         assertSteps.subHeaderTextIsDisplayed();
-    }
-
-    @Test
-    public void subHeaderTextShouldBe() {
-        actionSteps.open(HOME_PAGE_URL);
         assertSteps.subHeaderTextShouldBe(SUB_HEADER_TEXT);
-    }
-
-    @Test
-    public void jDIGitHubIsALinkTest() {
-        actionSteps.open(HOME_PAGE_URL);
         assertSteps.jDIGitHubLinkShouldBe(JDI_GITHUB_LINK);
-    }
 
-    @Test
-    public void leftSectionIsDisplayedTest() {
-        actionSteps.open(HOME_PAGE_URL);
         assertSteps.leftSectionIsDisplayed();
-    }
-
-    @Test
-    public void footerIsDisplayedTest() {
-        actionSteps.open(HOME_PAGE_URL);
         assertSteps.footerIsDisplayed();
     }
 

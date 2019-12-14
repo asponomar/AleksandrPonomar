@@ -12,7 +12,9 @@ buildNumber.properties
 # https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
 
-*.iml
-
 /.idea/
+*.iml
 /build/
+/allure-results/
+/.allure/
+/allure-reports/
