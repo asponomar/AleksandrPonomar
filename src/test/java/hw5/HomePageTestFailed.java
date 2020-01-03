@@ -25,11 +25,11 @@ public class HomePageTestFailed extends AbstractBaseTest implements TestData {
     @Severity(SeverityLevel.BLOCKER)
     public void browserTitleTest() {
         actionSteps.open(HOME_PAGE_URL);
-        assertSteps.browserTitleShouldBe(BROWSER_TITLE);
+        assertSteps.browserTitleShouldBe(HOME_PAGE_TITLE);
 
         actionSteps.login(USER_LOGIN, "Wr0ng P@$$w0rd");
         assertSteps.userNameShouldBe(USER_NAME);
-        assertSteps.browserTitleShouldBe(BROWSER_TITLE);
+        assertSteps.browserTitleShouldBe(HOME_PAGE_TITLE);
     }
 
 }

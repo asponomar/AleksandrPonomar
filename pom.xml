@@ -21,6 +21,7 @@
         <allure.version>2.13.0</allure.version>
         <aspectj.version>1.8.10</aspectj.version>
         <jackson.version>2.9.9</jackson.version>
+        <cucumber.version>1.2.5</cucumber.version>
 
         <calculator.version>1.0</calculator.version>
 
@@ -98,9 +99,10 @@
             </activation>
             <properties>
                 <suite.file>src\test\resources\hw4\DesignPatternsTestSuite.xml</suite.file>
+            </properties>
         </profile>
-          
-        <profile>              
+
+        <profile>
             <id>JenkinsTests</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
@@ -112,6 +114,8 @@
     </profiles>
 
     <dependencies>
+
+        <!--        Homework 2-3 Dependencies for Selenium-->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -124,7 +128,7 @@
             <artifactId>selenium-java</artifactId>
             <version>${selenium.version}</version>
         </dependency>
-      
+
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
@@ -138,6 +142,7 @@
             <version>${webdrivermanager.version}</version>
         </dependency>
 
+        <!--        Homework 4 Dependencies for Selenide-->
         <dependency>
             <groupId>com.codeborne</groupId>
             <artifactId>selenide</artifactId>
@@ -145,6 +150,7 @@
             <scope>compile</scope>
         </dependency>
 
+        <!--        Homework 5 Dependencies for Allure-->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-java-commons</artifactId>
@@ -169,6 +175,22 @@
             <version>${jackson.version}</version>
         </dependency>
 
+        <!--        Homework 6 Dependencies for Cucumber-->
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--        Homework 1 Local Dependencies-->
         <dependency>
             <groupId>calculator</groupId>
             <artifactId>calculator</artifactId>
